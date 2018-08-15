@@ -1,0 +1,6 @@
+[package]
+name = "corrosion_db"
+version = "0.1.0"
+authors = ["Joshua Terrasas <joshua.terrasas@studentbody.byu.edu>"]
+
+[dependencies]
