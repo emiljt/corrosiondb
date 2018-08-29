@@ -4,3 +4,7 @@ version = "0.1.0"
 authors = ["Joshua Terrasas <joshua.terrasas@studentbody.byu.edu>"]
 
 [dependencies]
+regex = ""
+serde = ""
+serde_derive = ""
+toml = ""
