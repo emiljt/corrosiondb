@@ -11,8 +11,10 @@ use std::io::prelude::*;
 use std::io::BufReader;
 
 fn main() {
-    // let configuration = config::print_config("../SimpleNexus/database_sanitizer/simplenexus.toml");
-    config::print_config();
+    let configuration = config::open(
+        String::from("../SimpleNexus/database_sanitizer/simplenexus.toml"));
+    
+    println!("{:?}", configuration);
 }
 
 fn process() {
