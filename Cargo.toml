@@ -1,5 +1,5 @@
 [package]
-name = "corrosion_db"
+name = "corrosiondb"
 version = "0.1.0"
 authors = ["Joshua Terrasas <jcterrasas+joshua@gmail.com>"]
 

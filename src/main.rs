@@ -13,7 +13,7 @@ extern crate clap;
 
 fn main() {
     // Setup CLI arguments
-    let args = clap::App::new("Corrosion DB")
+    let args = clap::App::new("CorrosionDB")
         .version(env!("CARGO_PKG_VERSION"))
         .author(env!("CARGO_PKG_AUTHORS"))
         .about(env!("CARGO_PKG_DESCRIPTION"))
