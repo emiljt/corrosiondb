@@ -1,10 +1,10 @@
 // #[macro_use]
-// extern crate serde_derive;
 // extern crate regex;
-// extern crate toml;
 extern crate clap;
+extern crate serde;
+extern crate toml;
 
-// mod config;
+mod config;
 
 // use std::env::args;
 // use std::fs::File;
@@ -38,10 +38,14 @@ fn main() {
             .index(2))
         .get_matches();
 
-    // let configuration = config::open(
-        // String::from("../SimpleNexus/database_sanitizer/simplenexus.toml"));
+    let configuration = if args.is_present("config") {
+        Some(config::open(String::from(args.value_of("config").expect("No config given")))
+            .expect("Unable to read config"))
+    } else {
+        None
+    };
 
-    // println!("{:?}", configuration);
+    println!("{:?}", configuration);
 }
 
 // fn process() {
