@@ -73,13 +73,13 @@ pub fn open(path: String) -> Result<Config, &'static str> {
     let mut toml_str = String::new();
 
     if f.read_to_string(&mut toml_str).is_err() {
-        return Err("Error reading config file");
+        return Err("Unable to read config file");
     }
 
     let c = ::toml::from_str(toml_str.as_str());
 
     match c {
         Ok(v) => Ok(v),
-        Err(_) => Err("Error reading config")
+        Err(_) => Err("Invalid config file")
     }
 }
