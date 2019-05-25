@@ -38,14 +38,8 @@ fn main() {
             .index(2))
         .get_matches();
 
-    let configuration = if args.is_present("config") {
-        Some(config::open(String::from(args.value_of("config").expect("No config given")))
-            .expect("Unable to read config"))
-    } else {
-        None
-    };
-
-    println!("{:?}", configuration);
+    let config = config::open(String::from(args.value_of("config").expect("No config provided")))
+        .expect("Unable read config");
 }
 
 // fn process() {

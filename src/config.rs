@@ -79,13 +79,7 @@ pub fn open(path: String) -> Result<Config, &'static str> {
     let c = ::toml::from_str(toml_str.as_str());
 
     match c {
-        Ok(v) => {
-            validate(&v);
-            Ok(v)
-        },
+        Ok(v) => Ok(v),
         Err(_) => Err("Error reading config")
     }
-}
-
-fn validate(_conf: &Config) {
 }
