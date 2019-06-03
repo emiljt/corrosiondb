@@ -6,10 +6,12 @@ extern crate toml;
 
 mod config;
 
+use std::fs::File;
+use std::io::{BufRead, BufReader};
+use std::path::Path;
 // use std::env::args;
 // use std::fs::File;
 // use std::io::prelude::*;
-// use std::io::BufReader;
 
 fn main() {
     // Setup CLI arguments
@@ -40,6 +42,17 @@ fn main() {
 
     let config = config::open(String::from(args.value_of("config").expect("No config provided")))
         .expect("Unable read config");
+
+    let input_file = File::open(Path::new(args.value_of("INPUT").expect("No input file provided")));
+    let input_file = BufReader::new(input_file.expect("Unable to open input file"));
+    let mut count = 0;
+
+    for _ in input_file.lines() {
+        count += 1;
+        // println!(":?", line);
+    }
+
+    println!("{}", count);
 }
 
 // fn process() {

@@ -1,6 +1,5 @@
-use std::io::prelude::*;
-use std::fs::File;
 use serde::{Deserialize};
+use std::io::prelude::*;
 
 #[derive(Debug, Deserialize)]
 enum Action {
@@ -65,7 +64,7 @@ struct Row {
 }
 
 pub fn open(path: String) -> Result<Config, &'static str> {
-    let mut f = match File::open(path) {
+    let mut f = match ::File::open(path) {
         Ok(file) => file,
         Err(_) => return Err("Error opening config file")
     };
